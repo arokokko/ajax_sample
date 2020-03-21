@@ -2,7 +2,11 @@
 let inputRub = document.getElementById('rub'),
     inputUsd = document.getElementById('usd');
 
-inputRub.addEventListener('input', () => {
+inputRub.addEventListener('input', (e) => {
+    if (isNaN(e.target.value)) {
+        inputUsd.value = "Input a number";    //проверка на ввод чисел
+        return false;
+    }
     let request = new XMLHttpRequest();
 
     // request.open(method, url- путь к серверу, async - по умолчанию true, login, password);
